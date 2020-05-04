@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TaskApplication implements CommandLineRunner {
 
-    private final    SortingService sortingService;
+    private final SortingService sortingService;
 
     @Autowired
     public TaskApplication(SortingService sortingService) {
@@ -22,6 +22,9 @@ public class TaskApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        sortingService.sortStr("сапог сарай арбуз болт бокс биржа");
+        String strFull = sortingService.sortStr("сапог сарай арбуз болт бокс биржа");
+        System.out.println(strFull);
+        String strMoreOneElement = sortingService.getContainingMoreThanOneElement();
+        System.out.println(strMoreOneElement);
     }
 }
